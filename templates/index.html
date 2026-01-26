@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CrediSure AI – Intelligent Loan Decisions</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+        }
+
+        /* ===== HEADER / HERO ===== */
+        header {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* ===== MAIN CARD ===== */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #ffffff;
+            color: #1a202c;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 35px;
+        }
+
+        /* ===== FORM GRID ===== */
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px 30px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1.5px solid #cbd5e0;
+            background: #f7fafc;
+            font-size: 14px;
+            transition: all 0.25s ease;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3182ce;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(49,130,206,0.2);
+        }
+
+        /* ===== BUTTON ===== */
+        button {
+            grid-column: span 2;
+            margin-top: 30px;
+            padding: 16px;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(49,130,206,0.4);
+        }
+
+        /* ===== RESULT ===== */
+        .result {
+            grid-column: span 2;
+            margin-top: 30px;
+            padding: 22px;
+            border-radius: 14px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+            background: #edf2f7;
+            color: #1a202c;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 800px) {
+            header h1 {
+                font-size: 36px;
+            }
+            form {
+                grid-template-columns: 1fr;
+            }
+            button, .result {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>CrediSure AI</h1>
+    <p>Intelligent Loan Decisions. Instantly.</p>
+</header>
+
+<div class="container">
+    <h2>Loan Approval Assessment</h2>
+    <p class="subtitle">
+        Powered by Machine Learning · Secure · Transparent · Fast
+    </p>
+
+    <form action="/predict" method="post">
+
+        <div>
+            <label>Applicant Income</label>
+            <input type="number" name="Applicant_Income" required>
+        </div>
+
+        <div>
+            <label>Coapplicant Income</label>
+            <input type="number" name="Coapplicant_Income" required>
+        </div>
+
+        <div>
+            <label>Age</label>
+            <input type="number" name="Age" required>
+        </div>
+
+        <div>
+            <label>Dependents</label>
+            <input type="number" name="Dependents" required>
+        </div>
+
+        <div>
+            <label>Credit Score</label>
+            <input type="number" name="Credit_Score" required>
+        </div>
+
+        <div>
+            <label>Existing Loans</label>
+            <input type="number" name="Existing_Loans" required>
+        </div>
+
+        <div>
+            <label>DTI Ratio</label>
+            <input type="number" step="0.01" name="DTI_Ratio" required>
+        </div>
+
+        <div>
+            <label>Savings</label>
+            <input type="number" name="Savings" required>
+        </div>
+
+        <div>
+            <label>Collateral Value</label>
+            <input type="number" name="Collateral_Value" required>
+        </div>
+
+        <div>
+            <label>Loan Amount</label>
+            <input type="number" name="Loan_Amount" required>
+        </div>
+
+        <div>
+            <label>Loan Term (Months)</label>
+            <input type="number" name="Loan_Term" required>
+        </div>
+
+        <div>
+            <label>Education Level</label>
+            <select name="Education_Level" required>
+                <option value="0">Not Graduate</option>
+                <option value="1">Graduate</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Employment Status</label>
+            <select name="Employment_Status" required>
+                <option value="Employed">Salaried</option>
+                <option value="Self-employed">Self-employed</option>
+                <option value="Self-employed">Contract</option>
+                <option value="Unemployed">Unemployed</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Marital Status</label>
+            <select name="Marital_Status" required>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Loan Purpose</label>
+            <select name="Loan_Purpose" required>
+                <option value="Home">Home</option>
+                <option value="Education">Education</option>
+                <option value="Education">Car</option>
+                <option value="Business">Business</option>
+                <option value="Personal">Personal</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Property Area</label>
+            <select name="Property_Area" required>
+                <option value="Urban">Urban</option>
+                <option value="Semiurban">Semiurban</option>
+                <option value="Rural">Rural</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Gender</label>
+            <select name="Gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Employer Category</label>
+            <select name="Employer_Category" required>
+                <option value="Government">Government</option>
+                <option value="Private">Private</option>
+                <option value="Self-employed">Self-employed</option>
+                <option value="Self-employed">MNC</option>
+                <option value="Self-employed">Business</option>
+            </select>
+        </div>
+
+        <button type="submit">Analyze Loan Eligibility</button>
+
+        {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+
+    </form>
+</div>
+
+<footer>
+    © 2026 CrediSure AI · Built with Machine Learning & Flask
+</footer>
+
+</body>
+</html>
