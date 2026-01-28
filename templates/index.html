@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- REQUIRED FOR MOBILE RESPONSIVENESS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CrediSure AI – Intelligent Loan Decisions</title>
 
     <!-- Google Font -->
@@ -19,7 +23,7 @@
             color: #ffffff;
         }
 
-        /* ===== HEADER / HERO ===== */
+        /* ===== HEADER ===== */
         header {
             padding: 60px 20px;
             text-align: center;
@@ -112,6 +116,10 @@
             box-shadow: 0 15px 30px rgba(49,130,206,0.4);
         }
 
+        button:active {
+            transform: scale(0.97);
+        }
+
         /* ===== RESULT ===== */
         .result {
             grid-column: span 2;
@@ -139,16 +147,65 @@
             opacity: 0.7;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 800px) {
-            header h1 {
-                font-size: 36px;
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+
+            header {
+                padding: 40px 15px;
             }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            .container {
+                margin: 20px 15px 50px;
+                padding: 25px 20px;
+                border-radius: 14px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+                margin-bottom: 25px;
+            }
+
             form {
                 grid-template-columns: 1fr;
+                gap: 18px;
             }
-            button, .result {
-                grid-column: span 1;
+
+            label {
+                font-size: 13px;
+            }
+
+            input,
+            select {
+                font-size: 15px;
+                padding: 12px 14px;
+            }
+
+            button {
+                margin-top: 20px;
+                padding: 16px;
+                font-size: 16px;
+            }
+
+            .result {
+                font-size: 18px;
+                padding: 18px;
+            }
+
+            footer {
+                font-size: 12px;
+                padding: 15px;
             }
         }
     </style>
@@ -163,9 +220,7 @@
 
 <div class="container">
     <h2>Loan Approval Assessment</h2>
-    <p class="subtitle">
-        Powered by Machine Learning · Secure · Transparent · Fast
-    </p>
+    <p class="subtitle">Powered by Machine Learning · Secure · Transparent · Fast</p>
 
     <form action="/predict" method="post">
 
@@ -237,7 +292,7 @@
             <select name="Employment_Status" required>
                 <option value="Employed">Salaried</option>
                 <option value="Self-employed">Self-employed</option>
-                <option value="Self-employed">Contract</option>
+                <option value="Contract">Contract</option>
                 <option value="Unemployed">Unemployed</option>
             </select>
         </div>
@@ -255,7 +310,7 @@
             <select name="Loan_Purpose" required>
                 <option value="Home">Home</option>
                 <option value="Education">Education</option>
-                <option value="Education">Car</option>
+                <option value="Car">Car</option>
                 <option value="Business">Business</option>
                 <option value="Personal">Personal</option>
             </select>
@@ -284,8 +339,8 @@
                 <option value="Government">Government</option>
                 <option value="Private">Private</option>
                 <option value="Self-employed">Self-employed</option>
-                <option value="Self-employed">MNC</option>
-                <option value="Self-employed">Business</option>
+                <option value="MNC">MNC</option>
+                <option value="Business">Business</option>
             </select>
         </div>
 
